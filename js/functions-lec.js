@@ -43,9 +43,11 @@ function increment(num){ //blueprint - parameter = expectation
 
 // Anonymous Functions [when passed into a parent function AKA 'callback function']
 
-// function honkHorn(){
-//     return "beep beep"
-// }
+
+
+function honkHorn(){
+    return "beep beep"
+}
 
 var honkHorn = function(){
 
@@ -53,7 +55,7 @@ var honkHorn = function(){
     return "anonymous beep beep";
 }
 
-console.log(honkHorn());
+// console.log(honkHorn());
 
-
+// git branch practice < git branch -b hello-there-marco!
 
