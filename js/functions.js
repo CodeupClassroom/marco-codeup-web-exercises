@@ -1,4 +1,7 @@
+(function (){
 "use strict";
+var car = "Honda Civic";
+console.log(car);
 
 /**
  * TODO:
@@ -78,16 +81,16 @@ console.log(isTwo(random));
  * bill, and return the amount to tip
  *
  * Examples:
- * > calculateTip(0.20, 20) // returns 4
+ * > calculateTip(xz, 20) // returns 4
  * > calculateTip(0.25, 25.50) // returns 6.375
  * > calculateTip(0.15, 33.42) // returns 5.013
  */
 
 function calculateTip(tipPercentage,billTotal){
-    // var tip = billTotal * tipPercentage;
-    // return tip;
+    var tip = billTotal * tipPercentage;
+    return tip.toFixed(2);
 
-    return billTotal * tipPercentage;
+    // return billTotal * tipPercentage;
 }
 
 /**
@@ -96,6 +99,19 @@ function calculateTip(tipPercentage,billTotal){
  * prompt the user for the bill total and a percentage they would like to tip,
  * then display the dollar amount they should tip
  */
+
+var billTotal = Number(prompt("How much was your bill?"));
+
+var tipPercent = Number(prompt("What percentage would you like to tip?"));
+
+
+// console.log(Number("3.25234523").toFixed(2));
+
+var calculatedTip = calculateTip(tipPercent,billTotal)
+
+var tipMessage = "You would tip $" + calculatedTip;
+
+alert(tipMessage);
 
 /**
  * TODO:
@@ -111,3 +127,12 @@ function calculateTip(tipPercentage,billTotal){
  *
  * > applyDiscount(45.99, 0.12) // 40.4712
  */
+
+function applyDiscount(price,discountPercent){
+    var discountedPrice = price - (price * discountPercent);
+    return discountedPrice.toFixed(2)
+}
+
+console.log(applyDiscount(30.78,0.2));
+
+})();
