@@ -9,14 +9,25 @@
  * > sayHello("codeup") // returns "Hello, codeup!"
  */
 
+function sayHello(name){
+    return "Hello, " + name + "!";
+}
+
+console.log(sayHello());
+
+console.log(sayHello("codeup"));
+
 /**
  * TODO:
- * Call the function 'sayHello' and pass your name as a string literal argument.
+ * Call the function 'sayHello' and pass your name as a string argument.
  * Store the result of the function call in a variable named 'helloMessage'.
  *
  * console.log 'helloMessage' to check your work
  */
 
+var helloMessage = sayHello("Samuel");
+
+console.log(helloMessage);
 /**
  * TODO:
  * Store your name as a string in a variable named 'myName', and pass that
@@ -24,15 +35,23 @@
  * console.
  */
 
+var myName = "Samuel";
+
+console.log(sayHello(myName));
+
 // Don't modify the following line, it generates a random number between 1 and 3
 // and stores it in a variable named random
 var random = Math.floor((Math.random() * 3) + 1);
+
+console.log("Your random number is " + random);
+
 
 /**
  * TODO:
  * Create a function called 'isTwo' that takes a number as a parameter.
  * The function should return a boolean value based on whether or not the passed
  * number is the number 2.
+ *
  *
  * Example
  * > isTwo(1) // returns false
@@ -44,7 +63,13 @@ var random = Math.floor((Math.random() * 3) + 1);
  * console.log *outside of the function* to check your work (you should see a
  * different result everytime you refresh the page if you are using the random
  * number)
- */
+ **/
+
+function isTwo(number){
+    return 2 === number;
+}
+
+console.log(isTwo(random));
 
 /**
  * TODO:
@@ -57,6 +82,13 @@ var random = Math.floor((Math.random() * 3) + 1);
  * > calculateTip(0.25, 25.50) // returns 6.375
  * > calculateTip(0.15, 33.42) // returns 5.013
  */
+
+function calculateTip(tipPercentage,billTotal){
+    // var tip = billTotal * tipPercentage;
+    // return tip;
+
+    return billTotal * tipPercentage;
+}
 
 /**
  * TODO:
