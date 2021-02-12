@@ -1,3 +1,15 @@
+// Three loops we went over: doWhile / while / for loop
+//
+//
+// CODEUP CAFE / ONLY THING WE SERVE is gonna be CODEUP CURRY represented by 'entrees'
+//
+// Three areas of my restaurant -
+//
+// i. order some food [entrees] [do/while loop] <asking how many entrees>
+// ii. back of the house - preparation of food [while loop] <processing those entrees>
+// iii. how did we do? how many orders did we have? [for loop] <tabulate the total num of entrees>
+
+
 function codeupCafe() {
 
     var entrees = "";
