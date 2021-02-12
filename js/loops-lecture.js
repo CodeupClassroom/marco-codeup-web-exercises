@@ -251,27 +251,28 @@ var onTheRoad = true;
 // OTHERWISE: print the number :)
 
 //
-// var loopCount = 0;
-//
-// for (var i = 1; i <= 50; i++) {
-//
-//     if (i === 25) {
-//       continue;
-//     } else if (i % 6 === 0){
-//         loopCount += 1;
-//         console.log("Codeup")
-//     } else if (i % 2 === 0){
-//         loopCount += 1;
-//         console.log("Code")
-//     } else if (i % 3 === 0){
-//         loopCount += 1;
-//         console.log("Up")
-//     } else {
-//         console.log(i)
-//     }
-//
-//
-// }
+var loopCount = 0;
+
+for (var i = 1; i <= 50; i++) {
+
+    if (i === 25) {
+      console.log("Skipping :)")
+      continue;
+    } else if (i % 6 === 0){
+        loopCount += 1;
+        console.log("Codeup")
+    } else if (i % 2 === 0){
+        loopCount += 1;
+        console.log("Code")
+    } else if (i % 3 === 0){
+        loopCount += 1;
+        console.log("Up")
+    } else {
+        console.log(i)
+    }
+
+
+}
 //
 // console.log("Codebuzz interrupted our numbers: " + loopCount + " times! Thanks Codebuzz!");
 //
