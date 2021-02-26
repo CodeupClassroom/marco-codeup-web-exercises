@@ -113,14 +113,10 @@
      * > console.log(books[0].author.lastName) // "Adams"
      */
 
+    createBook("The great book","Dan","Marineo");
+
     var books = [
-        {
-            title: "The great book",
-            author: {
-                firstName: "Dan",
-                lastName: "Marineo"
-            }
-        },
+        createBook("The great book","Dan","Marineo"),
         {
             title: "Clockwork Angel",
             author: {
@@ -182,10 +178,13 @@
      */
 
     books.forEach(function (book,index){
-        console.log("Book # " + (index + 1));
-        console.log("Title: " + book.title);
-        console.log("Author: " + book.author.firstName + " " + book.author.lastName);
-        console.log("---");
+
+        showBookInfo(book,index);
+
+        // console.log("Book # " + (index + 1));
+        // console.log("Title: " + book.title);
+        // console.log("Author: " + book.author.firstName + " " + book.author.lastName);
+        // console.log("---");
 
         // console.log("Book # " + (index + 1) + "\nTitle: " + book.title + "\nAuthor: " + book.author.firstName + " " + book.author.lastName + "\n---");
 
@@ -197,9 +196,50 @@
      *   name and returns a book object with the properties described
      *   previously. Refactor your code that creates the books array to instead
      *   use your function.
+     *
      * - Create a function named `showBookInfo` that accepts a book object and
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
+
+    function createBook(bookTitle, authorFirstName, authorLastName){
+        var newBook = {
+            title: bookTitle,
+            author: {
+                firstName: authorFirstName,
+                lastName: authorLastName
+            }
+        }
+        return newBook;
+    }
+
+    function showBookInfo(bookObject,bookNumber){
+        console.log("Book # " + (bookNumber + 1));
+        console.log("Title: " + bookObject.title);
+        console.log("Author: " + bookObject.author.firstName + " " + bookObject.author.lastName);
+        console.log("---");
+    }
+
+    books.push(createBook("Traction","Gino","Whitman"));
+
+    books.forEach(function (book,index){
+        showBookInfo(book,index);
+    })
+
+    console.log("This is my favorite book!");
+    showBookInfo(books[5])
+
+    // function createBook(bookTitle, authorFirstName, authorLastName){
+    //     return {
+    //         title: bookTitle,
+    //         author: {
+    //             firstName: authorFirstName,
+    //             lastName: authorLastName
+    //         }
+    //     };
+    // }
+
+    // console.log(createBook("My Side of the Mountain", "Some", "Person"));
+
 
 })();
