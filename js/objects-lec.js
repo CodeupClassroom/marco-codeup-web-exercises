@@ -161,16 +161,14 @@ var sigotherCar = {
     make: "Honda",
     model: "Fit",
     year: 2010,
-    owner: {
-        firstName: "Au.",
-        lastName: "Ga."
-    },
-    turnOn: turnMyCarOn // key : value
-}
+    owner: {firstName: "Au.",
+            lastName: "Ga."},
+    turnOn: turnMyCarOn
+};
 
 // console.log(sigotherCar);
 
-var theGarage = [myCar, sigotherCar]
+var theGarage = [myCar, sigotherCar];
 
 console.log(theGarage);
 
@@ -179,6 +177,6 @@ console.log(theGarage);
 //
 theGarage.forEach(function (car){
     car.turnOn();
-})
+});
 
 //One final TODO: A bigger task - set up your own garage and add at least another vehicle into it. Log your garage array to verify it contains the cars you want - once your garage has the right cars, write a loop to access some properties or a method from them!
