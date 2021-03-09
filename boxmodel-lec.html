@@ -13,38 +13,38 @@
         }
 
         #box-1 {
-            background: lightblue;
-            /*width: 400px;*/
-            /*height: 300px;*/
-            /*border: 10px solid black;*/
+            background: antiquewhite;
+            width: 400px;
+            height: 200px;
 
-/*TODO: Add padding & margin. Experiment with different syntax. */
+            /*TODO: Add padding & margin. Experiment with different syntax. */
+            padding: 10px; /* 10px all sides */
+            border: 10px solid crimson;
 
-/*Padding all around*/
+            /*padding: 10px 5px; !*10px top/bot & 5px l/r*/
+            /*Padding all around*/
+            /*padding: 10px 5px 15px 20px !* top right bottom left *!*/
+            /*border: 10px solid rebeccapurple;*/
+            /*margin: 10px;*/
 
-/* Top/Bottom, Left/Right */
-
-/* Top, right, bottom, left */
-
-/* TODO: Calculate total width and height */
 
         }
 
         #box-2 {
-            display: none;
+            /*display: none;*/
+
             background: lightgreen;
             width: 400px;
-            height: 300px;
-            border: 10px solid black;
-            /*box-sizing: border-box;*/
+            height: 200px;
+            padding: 10px;
+            border: 10px solid cornflowerblue;
 
-/* TODO: Add padding & margin. Experiment with different syntax.	*/
+            box-sizing: border-box;
 
-/* TODO: Change box-sizing to border-box	*/
+        }
 
-/* TODO: Calculate total width and height */
-
-
+        span {
+            font-size: 40px;
         }
     </style>
 
@@ -54,8 +54,11 @@
 <h1>Box Model</h1>
 
 <div id="box-1">
-    <p>Box1: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci alias atque id odio porro quaerat sit
-        ullam. Assumenda laudantium officia placeat quia sint vero voluptates! Delectus impedit ipsa velit!</p>
+    <p>
+        Box1: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci alias atque id odio porro
+        quaerat sit ullam. <span>Assumenda laudantium officia placeat quia sint vero voluptates! Delectus impedit ipsa
+        velit!</span>
+</p>
 </div>
 
 <div id="box-2">
