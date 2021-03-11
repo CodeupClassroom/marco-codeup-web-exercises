@@ -1,0 +1,249 @@
+/* *************************** SELECTORS *************************** */
+
+/* ----------- BASIC SELECTORS */
+
+/*
+    selector {
+        property: value;
+    }
+*/
+
+
+/*
+    element {
+        property: value;
+    }
+*/
+
+body {
+    background-color: lightblue;
+}
+
+
+/*
+    #id { AVOID THIS
+        property: value;
+    }
+*/
+
+/*#comic {*/
+/*    font-family: "Comic Sans MS";*/
+/*}*/
+
+/*
+    .class {
+        property: value;
+    }
+*/
+
+/*.comic {*/
+/*    font-family: "Comic Sans MS";*/
+/*}*/
+
+/* ----------- MULTIPLE SELECTORS */
+
+/*
+    selector, selector {
+        property: value;
+    }
+*/
+
+/*p, h1 {*/
+/*    font-family: "Comic Sans MS";*/
+/*    background-color: rebeccapurple;*/
+/*}*/
+
+.comic {
+    background-color: darkgrey;
+}
+
+/* ----------- COMBINING SELECTORS */
+
+/*
+    someSelector {
+        property: value;
+    }
+    anotherSelector {
+        property: value;
+    }
+*/
+
+.blue-text-heading {
+    color: blue;
+}
+
+.class3 {
+    background-color: red;
+}
+
+.pale-red-background {
+    background-color: palevioletred;
+}
+
+/* ----------- DESCENDANT SELECTOR  */
+
+/*
+    selectorParent selectorChild {
+        property: value;
+    }
+*/
+
+main p {
+    background-color: aqua;
+}
+
+nav a {
+    background-color: green;
+}
+
+/* ----------- DIRECT CHILD SELECTOR  */
+
+/*
+    selectorParent>directChild {
+        property: value;
+    }
+*/
+
+/*main>p {*/
+/*    font-size: 50px;*/
+/*}*/
+
+/*section>p {*/
+/*    font-size: 30px;*/
+/*}*/
+
+.special>p {
+    font-size: 20px;
+}
+
+/*p {*/
+/*    font-size: 16px;*/
+/*}*/
+
+/* ----------- COMBINING SELECTORS  */
+
+/*
+    element.aClassName {
+        property: value;
+    }
+*/
+
+p.comic {
+    font-family: "Comic Sans MS";
+}
+
+h3#comic {
+    font-family: "Comic Sans MS";
+    font-size: 50px;
+}
+
+/* -----------  PSEUDO CLASSES */
+a:link {
+    color:rebeccapurple;
+    font-size: 25px;
+}
+
+/* visited link (:visited) */
+a:visited {
+    color:black;
+}
+
+/* mouse hover over link (:hover) */
+a:hover {
+    color:red;
+}
+
+/* active/selected link (:active) */
+a:active {
+    color:green;
+}
+
+li:hover {
+    background-color: rebeccapurple;
+}
+
+/* Color in hex */
+/*body {*/
+/*    background-color: #00F;*/
+/*}*/
+
+body {
+    /*background-color: rgb(0, 0, 255);*/
+    background-color: rgba(0, 0, 255, 0.25);
+    color: rebeccapurple;
+}
+
+/* text-decoration */
+
+h1 {
+    /*text-decoration: line-through;*/
+    /*text-decoration: overline;*/
+    /*text-decoration: underline;*/
+    /* Yes you can use all of them at once! */
+    /*text-decoration: underline line-through overline;*/
+}
+
+/* text-align */
+
+h1 {
+    /*text-align: left;*/
+    /*text-align: center;*/
+    /*text-align: right;*/
+}
+
+/* =====================================================
+    font-family HUGE TOPIC!!!
+    web safe fonts vs. web fonts
+    general font categories: serif, sans-sarif, monospaced
+    the font-family property normally is set to a a list of fonts from most preferred to most web-safe
+    Example font stacks - https://www.cssfontstack.com/
+*/
+
+body {
+    font-family: "Apple Chancery", "Times New Roman", sans-serif;
+}
+
+/* font-style */
+
+h1 {
+    /*font-style: italic;*/
+    /*font-style: oblique;*/
+}
+
+/* font-size */
+h1 {
+    /*font-size: 32px;*/
+    /*font-size: 2em;*/
+}
+
+/* font-weight */
+p.comic {
+    /*font-weight: bold;*/
+}
+
+/* background images */
+
+body {
+    /*background-image: url("https://ktar.com/wp-content/uploads/2019/05/grumpy-cat-getty.jpg");*/
+    /*background-repeat: no-repeat;*/
+    /*background-repeat: repeat-y;*/
+    /*background-repeat: repeat-x;*/
+    /*background-size: cover;*/
+}
+
+/* list-style */
+ol {
+    /*list-style: georgian;    */
+    list-style: upper-alpha;
+}
+
+ul {
+    /*list-style: square;*/
+    /*list-style: circle;*/
+    list-style: disc;
+}
+
+/* override h1 color */
+h1 {
+    color: blue;
+}

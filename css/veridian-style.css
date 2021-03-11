@@ -1,0 +1,50 @@
+body {
+    background-color: #eddbff;
+    background-image: url("../images/fish-logoa.gif");
+    background-repeat: repeat-x;
+    background-position: top left;
+    font-family: "Montserrat", "Helvetica Neue", "Helvetica", sans-serif;
+    text-align: center;
+    width: 90%;
+}
+
+.auto-margins {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header {
+    text-decoration-line: underline;
+    color: #26004d;
+    margin-top: 50px;
+}
+
+ul, ol {
+    list-style: upper-latin;
+    list-style-position: inside;
+    padding: 0px;
+}
+
+table {
+    border: thin solid black;
+    border-collapse: collapse;
+    font-size: 1.2em;
+}
+
+th, td {
+    border: thin dotted black;
+    padding: 7.5px;
+}
+
+a:link {
+    color: #007e7e;
+}
+
+a:visited {
+    color: #333333;
+}
+
+a:hover {
+    background: #f88396;
+    color: #0d5353;
+}
