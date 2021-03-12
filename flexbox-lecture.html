@@ -2,9 +2,71 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Flexbox Basics Examples</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            font-family: Helvetica;
+            font-weight: bold;
+        }
+        .flex-container {
+
+            border: 3px solid goldenrod;
+            display: flex;
+            height: 15em;
+            width: 80vw;
+            /*flex-direction: column;*/
+            /*justify-content: center;*/
+            /*align-content: center;*/
+        }
+
+        .flex-item {
+            background: #BFD45D;
+            border: 2px solid #F9EFD6;
+            padding: 1em;
+            /*flex-grow: 1;*/
+        }
+
+        #item1 {
+            /*align-self: center;*/
+            flex-grow: 2;
+        }
+
+        #item2{
+            /*align-self: flex-start;*/
+        }
+
+        #item3 {
+
+            /*align-self: flex-end;*/
+            flex-grow: 1;
+        }
+
+        #item4 {
+            /*align-self: self-end;*/
+        }
+
+    </style>
 </head>
 <body>
+
+    <div class="flex-container">
+        <div id="item1" class="flex-item">Item 1</div>
+        <div id="item2" class="flex-item">Item 2</div>
+        <div id="item3" class="flex-item">Item 3</div>
+        <div id="item4" class="flex-item">Item 4</div>
+<!--        <div class="flex-item">Item 5</div>-->
+<!--        <div class="flex-item">Item 6</div>-->
+<!--        <div class="flex-item">Item 7</div>-->
+<!--        <div class="flex-item">Item 8</div>-->
+<!--        <div class="flex-item">Item 9</div>-->
+<!--        <div class="flex-item">Item 10</div>-->
+<!--        <div class="flex-item">Item 11</div>-->
+<!--        <div class="flex-item">Item 12</div>-->
+    </div>
 
 </body>
 </html>
