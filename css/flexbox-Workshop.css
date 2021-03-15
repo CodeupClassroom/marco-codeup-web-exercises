@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Helvetica;
+    font-weight: bold;
+}
+
+main {
+    background-color: darkgray;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid black;
+}
+
+main section {
+    display: flex;
+    justify-content: center;
+    border: 2px dotted #242E3F;
+    padding: 4em;
+    width: 50%;
+}
+
+.main-content {
+    width: 75%;
+}
+
+.flex-container {
+    background: #faebd7;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.flex-item {
+    border-right: 4px double #242E3F;
+    padding: 1em;
+}
