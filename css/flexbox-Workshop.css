@@ -41,3 +41,75 @@ main section {
     border-right: 4px double #242E3F;
     padding: 1em;
 }
+
+/* Card styling begins below */
+
+h1, h2, h3 {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+h3 {
+    color: grey;
+}
+hr {
+    border-top: 1px solid whitesmoke;
+    width: 90px;
+}
+.card {
+    margin: .5em;
+    border-radius: 2px;
+    background: antiquewhite;
+    width: 250px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* center on cross */
+    justify-content: space-evenly; /* space on main */
+
+    border: 1px solid black;
+}
+img {
+    border-radius: 120px;
+    width: 120px;
+}
+i {
+    color: grey;
+}
+.text-section {
+    position: relative;
+    bottom: 1.5em;
+}
+
+.icons {
+    display: flex;
+    justify-content: space-evenly;
+    width: 55%;
+}
+
+.icons i {
+    font-size: 2.2em;
+}
+
+/* we need to:
+TODO: flex the container (.boundary)
+TODO: leave the direction as ROW
+TODO: flex-wrap: wrap
+TODO: . . . justify / align appropriately
+TODO: add the 'padding' look
+ */
+
+.boundary {
+    background-color: cadetblue;
+    height: 100vh;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    border-top: 1px solid black;
+    padding-top: 2em;
+}
+
+.padding-boundary {
+    background-color: #0d5353;
+    padding: 0 7em 0 7em;
+}
