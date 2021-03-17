@@ -1,0 +1,17 @@
+* {
+    box-sizing: border-box;
+}
+
+header nav a {
+    color: black;
+    display: inline-block;
+}
+
+header nav a:hover {
+    color:blue;
+}
+
+nav {
+    display: flex;
+}
+
