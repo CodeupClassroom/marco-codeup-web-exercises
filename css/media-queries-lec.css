@@ -1,0 +1,103 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+h1, h2, h3 {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+h2 {
+    font-size: medium;
+}
+
+h3 {
+    font-size: smaller;
+    color: grey;
+}
+
+hr {
+    border-top: 1px solid whitesmoke;
+    width: 90px;
+}
+
+.card {
+    margin: .5em;
+    border-radius: 2px;
+    background: antiquewhite;
+    width: 50vw;
+    height: 33vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* center on cross */
+    justify-content: space-evenly; /* space on main */
+
+    border: 1px solid black;
+}
+
+.flex-container {
+    background-color: #efb323;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.flex-item {
+    padding: 1em;
+}
+
+img {
+    display: none;
+}
+
+
+i {
+    color: grey;
+}
+.text-section {
+    position: relative;
+    bottom: 1.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.icons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icons i {
+    font-size: 2.2em;
+}
+
+.boundary {
+    background-color: cadetblue;
+    height: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    padding-top: 2em;
+}
+
+.padding-boundary {
+    background-color: #0d5353;
+    padding: 0 3.5em 0 3.5em;
+
+}
+
+nav div:nth-child(3), nav div:nth-child(4) {
+    display: none;
+}
+
+nav div:nth-child(1), nav div:nth-child(2) {
+    flex-grow: 1;
+}
+
+nav div {
+    border: 2px double black;
+}
