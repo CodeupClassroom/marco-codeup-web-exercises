@@ -101,3 +101,64 @@ nav div:nth-child(1), nav div:nth-child(2) {
 nav div {
     border: 2px double black;
 }
+
+/* our first media query: ABOVE 576px, let's TAILOR the layout to respond
+
+pay attention to how you set this up:
+@media screen and (min-width: 576px) and (max-width: 765px)
+// only apply this css IN THIS RANGE
+vs
+
+@media screen and (min-width: 576px)
+// apply this css from THIS POINT ON
+*/
+
+@media screen and (min-width: 576px){
+
+    nav div:nth-child(3), nav div:nth-child(4){
+        display: inline-block;
+    }
+
+    nav div {
+        flex-grow: 1;
+
+    }
+
+    img {
+        display: inline-block;
+        width: 25%;
+        border-radius: 120px;
+    }
+
+    section {
+        display: flex;
+        justify-content: center;
+    }
+
+    .padding-boundary {
+        padding: 0 7em 0 7em;
+    }
+
+    .icons {
+        flex-direction: row;
+        width: 30%;
+        justify-content: space-between;
+    }
+
+    h2, h3 {
+        font-size: revert;
+    }
+
+    .card {
+        height: 33vh;
+        width: 33vw;
+    }
+}
+
+/*next media query as an example: from 768px on, purple navbar go!*/
+
+@media screen and (min-width: 768px){
+    nav div{
+        background-color: rebeccapurple;
+    }
+}
