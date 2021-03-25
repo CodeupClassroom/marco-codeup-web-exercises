@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>B O M Lecture~~~</title>
+</head>
+<body>
+
+<h1>refresh me pleaseeeee!</h1>
+
+
+<script>
+"use strict";
+
+// var count = 0;
+// var max = 10;
+// var interval = 1000; //interval == five second (ms)
+//
+// var intervalInstructions = function(){
+//     // if(count >= max){
+//     //     console.log("All done");
+//     //     clearInterval(intervalId)
+//     // } else {
+//         console.log("Repeating this line; we're on interval number: " + count);
+//         count++;
+//     // }
+// }
+//
+// var intervalId = setInterval(intervalInstructions, interval)
+//     //return me an ID for this interval (2)
+//
+// var intervalId2 = setInterval(intervalInstructions, interval + 1000)
+//     //return me a DIFFERENT id for this OTHER interval
+//
+// clearInterval(specificIntervalID) //stop THIS interval by ID
+
+var delay = 5000;
+
+var timeoutId = setTimeout(function(){
+    location.reload();
+}, delay)
+
+setTimeout(function(){
+    alert("Hey! I'm about to reload!")
+}, 2000)
+</script>
+</body>
+</html>
