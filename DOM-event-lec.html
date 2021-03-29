@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Lecture Area</title>
+</head>
+<body>
+    <button id="button1">Let's see an event</button>
+    <button id="button2">Change some colors~</button>
+    <button id="button3">REMOVE EVENTS [I hate 'em]</button>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, deleniti id ipsam itaque labore officiis qui sint totam ut voluptatibus!</p>
+
+<script>
+    var buttonOne = document.getElementById("button1");
+
+    console.log(buttonOne);
+
+    var alertMe = function (){
+        alert("This button was clicked!")
+    }
+
+        buttonOne.addEventListener("click", alertMe)
+
+    //multiple addEventListeners needed
+
+    // someone let me know - how would I do this? add an event listener to button2 [grab it and put it in a variable first?]
+
+    var buttonTwo = document.getElementById("button2");
+
+    var purpleParagraph = function(){
+        var paragraph = document.getElementsByTagName("p");
+        paragraph[0].style.backgroundColor = "rebeccapurple"
+    }
+
+    buttonTwo.addEventListener("click", purpleParagraph)
+
+    var buttonThree = document.getElementById("button3")
+
+    buttonThree.addEventListener("click", function(){
+
+        buttonOne.removeEventListener("click", alertMe);
+        buttonTwo.removeEventListener("click", purpleParagraph);
+
+    })
+
+
+</script>
+</body>
+</html>
