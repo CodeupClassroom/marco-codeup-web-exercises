@@ -53,38 +53,78 @@
         // Event Handler / Listener Function Review from JavaScript
 
         // with anon function
-
+        // var mainContainer = document.getElementById('container');
+        //
+        // mainContainer.addEventListener('click', function(e){
+        //     console.log(e);
+        // });
 
 
         // with defined handler
 
-
-
+        // var mainContainer = document.getElementById('container');
+        //
+        // function clickHandler(e) {
+        //     console.log(e);
+        // }
+        //
+        // mainContainer.addEventListener('click', clickHandler)
 
         // jQuery with anon function
 
-
-
-
+        // $('#container').click(function(e){
+        //    console.log(e);
+        // });
 
         // jQuery with defined handler
-
-
-
+        // function clickHandler(e) {
+        //     console.log(e);
+        // }
+        //
+        // $('#container').click(clickHandler);
 
         // Double click and using "this" or "e.target"
+        // var lis = document.getElementsByTagName('li');
+        //
+        // for (var i = 0; i < lis.length; i++) {
+        //     var currentElement = lis[i];
+        //     currentElement.addEventListener('click', function(e) {
+        //         console.log('connected with addEventListener', e);
+        //     })
+        // }
 
+        // $('li').dblclick(function(e){
+        //    //console.log(e);
+        //     //console.log(this);
+        //     $(this).css('background', 'yellow');
+        // });
+
+        // function dblClickHandler(e) {
+        //     console.log(e);
+        //     $(e.target).css('background', 'green')
+        // }
+        //
+        // $('li').dblclick(dblClickHandler);
 
 
         // Hover
 
         //SINGLE FUNCTION
 
-
+        // $('.box').hover(function(e) {
+        //     console.log(e);
+        //     $(e.target).css('background', 'rebeccapurple')
+        // })
 
         //TWO FUNCTIONS
 
-
+        $('.box').hover(function(e){
+            console.log('enter');
+            $(e.target).css('background', 'rebeccapurple');
+        },function(e){
+            console.log('leave');
+            $(e.target).css('background', 'green');
+        })
 
 
         /* extra practice problems
