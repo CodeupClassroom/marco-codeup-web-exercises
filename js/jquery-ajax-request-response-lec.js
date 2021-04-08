@@ -2,6 +2,18 @@ $(document).ready(function(){
     "use strict";
     console.log("Intro to AJAX!");
 
+    var car = {
+        make: "Chrysler",
+        model: "Pacifica",
+        year: 2018,
+        funToDrive: true
+    }
+    //
+    // console.log("should be a string", JSON.stringify(car));
+    // var jsonOfCar = JSON.stringify(car);
+    // console.log("json in a variable", jsonOfCar);
+    // console.log("the object car", car);
+
 
     //JSON?
 
@@ -14,20 +26,34 @@ $(document).ready(function(){
      * TO DO TOGETHER: Let's make our first AJAX request. Generate a new Hookbin
      * endpoint, then query it for a username...
      */
-
+    var hookbinUrl = 'https://hookb.in/6Jj0pYzJzkILbb031yrp';
+    //console.log($.ajax(hookbinUrl));
 
     /*
      * TO DO TOGETHER: For this next one, we'll send over some data. Add the
      * following JavaScript Object to your Hookbin AJAX request:
      */
 
+    // $.ajax(hookbinUrl, {
+    //     type: "POST",
+    //     data: JSON.stringify(car)
+    // });
 
+    // Send a get request and query for the username bob.
+    //$.ajax(hookbinUrl + "?username=bob");
 
     /*
-     * TO DO: Refactor the first example using a GET request object instead of
+     * TO DO: Refactor the third example using a GET request object instead of
      * appending a query to the url.
      */
 
+    $.ajax(hookbinUrl, {
+        method: "GET",
+        data: {
+            username: "bob",
+            active: true
+        }
+    })
 
     /*********************************************
      *              REQUESTS and RESPONSES
@@ -38,14 +64,31 @@ $(document).ready(function(){
      * API and get data back. Uncomment the line below.
      */
 
+    var swapiBaseURL = "https://swapi.dev/api/";
 
+    $.ajax(swapiBaseURL + 'people/', {
+        method: "GET",
+        data: {
+            search: "r2"
+        }
+    }).done(function(data){
+        console.log(data);
+    });
 
     /*
      * TO DO: Look up the Star Wars API and make a similar request that would
      * return a list of all Star Wars films.
      */
 
-
+    $.ajax(swapiBaseURL + "films/").done(function(data){
+        console.log(data);
+    }).fail(function(jqXHR, status){
+        console.log("failed to get films");
+        console.log(status);
+        console.log(jqXHR);
+    }).always(function(){
+        console.log("Getting films");
+    });
 
 
     /*
@@ -56,7 +99,7 @@ $(document).ready(function(){
      * TO DO TOGETHER: Let's make a request to the books inventory we saved
       * previously.
      */
-    //var myBooks = ???
+    var myBooks = $.ajax("data/books.json");
 
     function onSuccess (data){
         console.log(data);
@@ -70,20 +113,21 @@ $(document).ready(function(){
         console.log("Looking for books...");
     }
 
+    myBooks.done(onSuccess);
 
     /*
      * TO DO TOGETHER: What if we want to display a message if this AJAX request
      * fails?
      */
 
-
+    myBooks.fail(onFail);
 
     /*
      * TO DO TOGETHER: How about a function that always runs whether the request
      * fails or not?
      */
 
-
+    myBooks.always(onAlways);
 
     /*
      * TO DO: Refactor your Star Wars API request to log a message that says
