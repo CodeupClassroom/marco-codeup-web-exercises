@@ -86,9 +86,9 @@ var codeupDalMarker = new mapboxgl.Marker({color: "cornflowerblue"})
 
 // TODO: Update the marker object to make the marker draggable. *Hint: reference the docs!
 
-var codeupSAMarker = new mapboxgl.Marker({color: "rebeccapurple", draggable: true})
-    .setLngLat([-98.4895, 29.4267])
-    .addTo(marcoMap)
+// var codeupSAMarker = new mapboxgl.Marker({color: "rebeccapurple", draggable: true})
+//     .setLngLat([-98.4895, 29.4267])
+//     .addTo(marcoMap)
 
 /**********************************************
  * 					POPUPS
@@ -128,8 +128,11 @@ marcoMarker.setPopup(alamoPopup)
 
 // TODO: Review the popup docs. What are some additional options we can pass to the popup? Choose one and experiment with implementing that option to a popup!
 
+//Marco student review: trackPointer() 2/5 codies, cannot see the use of it in the future! Sounds neat though: tracks the mouse cursor for whatever purposes we could imagine.
+
 // TODO: Try setting the text of a popup by using ".setText()" instead of ".setHTML()" - what happens with HTML tags between the two?
 
+//In the MapBox DOCS: similar difference between innerHTML and innerText
 
 
 /**********************************************
@@ -138,20 +141,77 @@ marcoMarker.setPopup(alamoPopup)
 // Geocoding Docs --> https://docs.mapbox.com/api/search/#geocoding
 // TODO TOGETHER: Let's set up our mapbox-geocoder-utils.js!
 
+//We set up: a mapbox-geocoder-utils.js, hooked it up to our .html file, and console.logged to confirm hooking them up
+
 
 // TODO TOGETHER: Using the Geocoder helper function, log the coordinates of Codeup and recenter the map to focus on Codeup.
+
+// ex. function call: geocode("San Antonio", API_TOKEN_HERE).then(function(results) {
+//  *      // do something with results
+//  *  })
 //https://docs.mapbox.com/mapbox-gl-js/api/map/#map#setcenter
+//
+// geocode("600 Navarro St #600, San Antonio, TX 78205", mapboxToken).then(function(results){
+//     console.log(results);
+//     marcoMap.setCenter(results); //results, right now, are an arr of coordinates - looks good!
+// })
 
 //TODO: Using the geocode method above, add a marker at Codeup to the map
 
+// geocode("600 Navarro St #600, San Antonio, TX 78205", mapboxToken).then(function(results){
+//
+//     var popup = new mapboxgl.Popup()
+//         .setHTML('<h6>Thanks Geocode</h6>')
+//
+//     new mapboxgl.Marker()
+//         .setLngLat(results)
+//         .setPopup(popup)
+//         .addTo(marcoMap)
+// })
 
 //TODO: Instead of setCenter try using map.jumpTo()
+
+// geocode("Portland, Maine", mapboxToken).then(function(results){
+//
+//     var popup = new mapboxgl.Popup()
+//         .setHTML('<h6>Thanks Geocode</h6>')
+//
+//     new mapboxgl.Marker()
+//         .setLngLat(results)
+//         .setPopup(popup)
+//         .addTo(marcoMap)
+//
+//     marcoMap.jumpTo({center: results})
+// })
+
 //TODO: Instead of setCenter try using map.flyTo()
 
-
+// geocode("701 Commerce St #100A, Dallas, TX 75202", mapboxToken).then(function(results){
+//
+//     var popup = new mapboxgl.Popup()
+//         .setHTML('<h6>Thanks Geocode</h6>')
+//
+//     new mapboxgl.Marker()
+//         .setLngLat(results)
+//         .setPopup(popup)
+//         .addTo(marcoMap)
+//
+//     marcoMap.flyTo({center: results})
+// })
 
 // TODO TOGETHER: Reverse Geocoding: Using the reverse geocoding method, enter the coordinates {lng: -98.4861, lat: 29.4260} to get a physical address for the Alamo
+// * EXAMPLE:
+// *
+// *  reverseGeocode({lat: 32.77, lng: -96.79}, API_TOKEN_HERE).then(function(results) {
+// *      // do something with results
+// *  })
+
+reverseGeocode({lat: 29.4260, lng: -98.4861}, mapboxToken).then(function(results){
+    console.log(results);
+})
 
 // TODO: Reverse geocode coordinates of your choice using the reverse geocode method
 
-
+reverseGeocode({lng: -96.8056, lat: 32.7786}, mapboxToken).then(function(results){
+    console.log("Hey, where's codeup dallas at?" + " " + "Oh I found the address: " + results);
+})
