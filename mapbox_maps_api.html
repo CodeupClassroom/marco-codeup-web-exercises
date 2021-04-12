@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Geocode Examples</title>
+    <!-- Mapbox CSS -->
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <!-- Custom CSS -->
+    <style>
+        #map {
+            /* the width and height may be set to any size */
+            width: 100%;
+            height: 700px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>My First Mapbox Map!</h1>
+<select id="zoom-select">
+    <option selected disabled>Zoom Level</option>
+    <option value="5">Zoom Level 5</option>
+    <option value="9">Zoom Level 9</option>
+    <option value="15">Zoom Level 15</option>
+    <option value="20">Zoom Level 20</option>
+</select>
+<!-- The HTML element that serves as the Mapbox container -->
+<div id='map'></div>
+<script src="js/keys.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.js"
+        integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+        crossorigin="anonymous"></script>
+<!-- Mapbox JS -->
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+
+<!-- Mapbox Geocoder Util Methods -->
+<script src="js/mapbox-geocoder-utils.js"></script>
+
+<!-- Custom JS -->
+<script>
+    mapboxgl.accessToken = mapboxToken;
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v9',
+        zoom: 9,
+        center: [-96.798685, 32.781214]
+    });
+
+    var restaurantArray = [
+        {
+            address: "4350 Belt Line Rd, Addison, TX 75001",
+            popupHTML: "<p>Osaka Sushi Grill<br>4350 Belt Line Rd, Addison, TX 75001</p>"
+        },
+        {
+            address: "8580 TX-121, Frisco, TX 75034",
+            popupHTML: "<p>Buca di Beppo Italian Restaurant<br>8580 TX-121, Frisco, TX 75034</p>"
+        },
+        {
+            address: "1520 Elm St #111, Dallas, TX 75201",
+            popupHTML: "<p>Campisi's Restaurants | Downtown Dallas<br>1520 Elm St #111, Dallas, TX 75201</p>"
+        },
+        {
+            address: "944 E Copeland Rd, Arlington, TX 76011",
+            popupHTML: "<p>Asian Buffet<br>944 E Copeland Rd, Arlington, TX 76011</p>"
+        },
+        {
+            address: "3726 Towne Crossing Blvd, Mesquite, TX 75150",
+            popupHTML: "<p>Snuffer's<div class='best'>Home of the best Cheese Fries</div>3726 Towne Crossing Blvd, Mesquite, TX 75150</p>"
+        }
+    ];
+
+    restaurantArray.forEach(function(restaurant) {
+        geocode(restaurant.address, mapboxToken).then(function(result) {
+            console.log(result);
+
+            var marker = new mapboxgl.Marker()
+                .setLngLat(result)
+                .addTo(map);
+
+            var popupHTML = restaurant.popupHTML;
+
+            var popup = new mapboxgl.Popup().setHTML(popupHTML);
+
+            marker.setPopup(popup);
+        });
+    });
+
+    var zoomSelect = document.getElementById("zoom-select");
+
+    //Vanilla JS
+    // zoomSelect.addEventListener('change', function(){
+    //     var zoomValue = zoomSelect.options[zoomSelect.selectedIndex].value;
+    //     console.log(zoomValue);
+    //     map.setZoom(zoomValue);
+    // });
+
+    //jQuery
+    $('#zoom-select').change(function(e){
+        console.log(e.target.value);
+        map.setZoom(e.target.value);
+    });
+
+    // the  geocode method from mapbox-geocoder-utils.js
+    // geocode("4350 Belt Line Rd, Addison, TX 75001", mapboxToken).then(function(result) {
+    //     console.log(result);
+    //
+    //     var marker = new mapboxgl.Marker()
+    //         .setLngLat(result)
+    //         .addTo(map);
+    //
+    //     var popupHTML = "<p>Osaka Sushi Grill<br>4350 Belt Line Rd, Addison, TX 75001</p>";
+    //
+    //     var popup = new mapboxgl.Popup().setHTML(popupHTML);
+    //
+    //     marker.setPopup(popup);
+    // });
+
+</script>
+</body>
+</html>
