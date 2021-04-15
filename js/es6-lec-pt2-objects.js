@@ -18,14 +18,19 @@
 // 	isCute: isCute
 // }
 //
-// console.log(oldDog);
+//console.log(oldDog);
 
 
 
 // //new way
 
-
-
+// let newDog = {
+//     breed,
+//     age,
+//     dogName,
+//     isCute
+// }
+//
 // console.log(newDog);
 
 
@@ -40,24 +45,23 @@
 
 var personA = {
     name: 'codeup',
-    age: 4
+    age: 7
 };
 
 // // old way
-// var name = personA.name;
-// var age = personA.age;
-//
-//
+// let name = personA.name;
+// let age = personA.age;
+// //
+// //
 // console.log(name); // 'codeup'
 // console.log(age); // 4
 
-
 //TODO TOGETHER: REFACTOR the above approach using ES6
 
-
-
-// console.log(name);
-// console.log(age);
+// const {name, age} = personA;
+//
+// console.log('destructured ' + name);
+// console.log('destructured ' + age);
 
 
 
@@ -87,11 +91,13 @@ const pals = {
 //TODO TOGETHER: REFACTOR the above approach using ES6
 //new way
 
-
-// console.log(dog);
-// console.log(cat);
-// console.log(mouse);
-
+// let {dog, cat, mouse} = pals;
+// pals.dog = "Kewpie";
+// pals.hamster = "Lucy";
+// console.log('destructured ' + dog);
+// console.log('destructured ' + cat);
+// console.log('destructured ' + mouse);
+// console.log(pals);
 
 /*==============================================*/
 
@@ -104,10 +110,10 @@ const theFlash = {
     powers: "Super Speed"
 }
 
+let {alias, powers} = theFlash;
 
-
-// console.log(alias);
-// console.log(powers);
+console.log(alias);
+console.log(powers);
 
 
 /*==============================================*/
@@ -122,8 +128,8 @@ let cats = ["CJ", "Claude", "Max"];
 
 
 //new way
-
-
+// let [cat1, cat2, cat3] = cats;
+//
 // console.log(cat1);
 // console.log(cat2);
 // console.log(cat3);
@@ -141,6 +147,7 @@ const alphabet = ['A', 'B', 'C', 'D', 'E'];
 
 //TODO TOGETHER: new way
 
+//const [a, b, c] = alphabet;
 
 // console.log(a);
 // console.log(b);
@@ -150,20 +157,22 @@ const alphabet = ['A', 'B', 'C', 'D', 'E'];
 
 //TODO TOGETHER: To skip an element...
 
+//const [a, ,c] = alphabet;
 
-// console.log(a);
-// // console.log(b);
+//console.log(a);
+// console.log(b);
 // console.log(c);
 // console.log(d);
 
 
 //TODO TOGETHER: To get all elements...Spread operator *BONUS
 
+const [a,b,c, ...anydifferent] =alphabet;
 
-// console.log(a);
-// console.log(b);
-// console.log(c);
-// console.log(rest);
+console.log(a);
+console.log(b);
+console.log(c);
+console.log(anydifferent);
 
 
 /*==============================================*/
@@ -181,14 +190,18 @@ const alphabet = ['A', 'B', 'C', 'D', 'E'];
 
 //new way
 
+function tellMeAbout({name, age}) {
+    console.log(name); // 'Douglas'
+	console.log(age); // 38
+}
 
 //
-// const person = {
-// 	name: 'Douglas',
-// 	age: 38
-// };
-//
-// tellMeAbout(person);
+const person = {
+	name: 'Douglas',
+	age: 38
+};
+
+tellMeAbout(person);
 
 
 /*==============================================*/

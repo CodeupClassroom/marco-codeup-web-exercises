@@ -14,21 +14,23 @@ function checkWeather(isRaining) {
 
 }
 
-//checkWeather(false); //what happens?
+//checkWeather(false); //Undefined
 
 
 
 function checkWeatherTwo(isRaining) {
+    const condition = "Sunny";
     if (isRaining) {
         const umbrella = "Get an umbrella"
     } else {
         const sunglasses = "Grab your glasses!"
+        //sunglasses = "Got mine!"; //won't work
         console.log(umbrella);
     }
 
 }
 
-//checkWeatherTwo(false) //What happens?
+//checkWeatherTwo(false) //ReferenceError: umbrella is not defined
 
 
 /*==============================================*/
@@ -41,7 +43,7 @@ function checkWeatherTwo(isRaining) {
 
 
 
-// const instructor = 'Douglas';
+//const instructor = 'Douglas';
 // console.log(instructor); // Douglas
 // instructor = 'Kenneth';
 // console.log(instructor); // Uncaught TypeError: Assignment to constant variable.
@@ -67,13 +69,14 @@ function checkWeatherTwo(isRaining) {
 }
 {
     let b = 20;
+    //console.log("I'm in a block " + b)
 }
 
 const c = 30;
 
-// console.log(a); // 10
-// console.log(b); // Uncaught ReferenceError: b is not defined
-// console.log(c += 3); //Uncaught TypeError: Assignment to constant variable.
+//console.log(a); // 10
+//console.log(b); // Uncaught ReferenceError: b is not defined
+//console.log(c += 3); //Uncaught TypeError: Assignment to constant variable.
 
 
 
@@ -87,13 +90,23 @@ const c = 30;
 // if (false) {
 //    var x = 2; //Undefined
 // }
-
-// if (false) {
+// const instructor = "Douglas";
+// if (true) {
+//     const otherInstructor = "Kenneth";
+// }
+//
+// if (true) {
 //     let x = 2; //Uncaught ReferenceError: x is not defined
+//     console.log("I'm in the if statement. " + x) // I can use it in the block.
+//     console.log(instructor);
+//     //console.log(otherInstructor);
+//     for(let i = 0; i < 10; i++) {
+//         x = x * 2; // I can access variables in scopes above me.
+//         console.log("in a loop " + x);
+//     }
 // }
 
-// console.log(x);
-
+//console.log(x); // I can't see it because I'm not in the block.
 
 
 
@@ -106,12 +119,20 @@ let firstName = "Douglas";
 let lastName = "Hirsh";
 let greeting = "Hello my name is " + firstName + ' ' + lastName + '.';
 
-// console.log(greeting);
+ console.log(greeting);
 
 //TODO: Refactor code from above, using template strings.
+let newGreeting = `Hello my name is ${firstName} ${lastName}. ${1+2}`
 
+console.log(newGreeting);
 
-// console.log(newGreeting);
+let aLetter = `Hi Marco,
+This is a letter with multiple lines. Hope you enjoy template strings.
+
+--Douglas
+`;
+
+//console.log(aLetter);
 
 
 
@@ -136,13 +157,19 @@ itemsHtml += "<li>" + items[1]+ "</li>"
 itemsHtml += "<li>" + items[2]+ "</li>"
 itemsHtml += "</ul>";
 
-// console.log(itemsHtml);
+//console.log(itemsHtml);
 
 
 //new way
+let newItemsHtml = `
+    <ul>
+        <li>${items[0]}</li>
+        <li>${items[1]}</li>
+        <li>${items[2]}</li>
+    </ul>
+`;
 
-
-// console.log(newItemsHtml);
+//console.log(newItemsHtml);
 
 
 /*==============================================*/
@@ -156,8 +183,11 @@ let program = {
     technology: "HTML, CSS, JS, Java"
 }
 
+let programLetter = `Hello and thank for your interest in ${program.name}!
+Our program is located in ${program.location}. The program lasts ${program.length}.
+`
 
-// console.log(programLetter);
+//console.log(programLetter);
 
 
 
@@ -183,7 +213,9 @@ let program = {
 
 const days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
 
-
+// for(let day of days) {
+//     console.log(day);
+// }
 
 /*==============================================*/
 
@@ -191,7 +223,9 @@ const days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday"
 
 const instructors = ["Douglas", "Kenneth", "Justin", "Casey", "David"]
 
-
+// for(let instructor of instructors) {
+//     console.log(instructor);
+// }
 
 
 /* ****************************
@@ -204,12 +238,18 @@ function sayHello(name){
     return `Hello ${name}`;
 }
 
+//V1
+//let sayHelloAgain = (name) => {return `Hello, ${name}!`};
 
+//V2
+//let sayHelloAgain = (name) => `Hello, ${name}!`;
 
+//V3
+let sayHelloAgain = name => `Hello, ${name}!`;
 
-// console.log(sayHelloAgain("Douglas")); //Hello Douglas
-// console.log(sayHelloAgain("Justin")); //Hello Justin
-// console.log(sayHelloAgain("Kenneth")); //Hello Kenneth
+console.log(sayHelloAgain("Douglas")); //Hello Douglas
+console.log(sayHelloAgain("Justin")); //Hello Justin
+console.log(sayHelloAgain("Kenneth")); //Hello Kenneth
 
 
 
@@ -220,13 +260,13 @@ function sayHello(name){
 // 	return a + b;
 // }
 
+let sum = (a, b) => a + b;
 
 
 
-
-// console.log(sum(5, 3)); //8
-// console.log(sum(5, 20)); //25
-// console.log(sum(1, 9)); //10
+console.log(sum(5, 3)); //8
+console.log(sum(5, 20)); //25
+console.log(sum(1, 9)); //10
 
 
 
@@ -280,23 +320,31 @@ const addOneD = arg1 => arg1 + 1;
 //TODO Together: Refactor the following using ES6
 
 // old way
-// function sayHello(name) {
-// 	if (typeof name === 'undefined') {
-// 		name = 'World';
-// 	}
+function sayHello(name) {
+	if (typeof name === 'undefined') {
+		name = 'World';
+	}
+
+	return 'Hello, ' + name + '!';
+}
+
+let sayHello2 = (name = "World") => `Hello, ${name}!`
+
+let sum2 = (a = 0, b = 0) => a + b;
+
+// console.log(sayHello2(undefined));
+// console.log(sayHello2(null));
+// console.log(sayHello2()); // "Hello, World!"
+// console.log(sayHello2("")); // "Hello, ??????!"
+// console.log(sayHello2('codeup')); // "Hello, codeup!"
 //
-// 	return 'Hello, ' + name + '!';
-// }
+// console.log('Default values for numbers', sum2(5));
 
-
-
-
-
-// console.log(sayHello2());; // "Hello, World!"
-// console.log(sayHello2('codeup'));; // "Hello, codeup!"
-
-
-
+// let abc;
+// console.log(abc);
+// console.log(typeof abc);
+// abc = 5;
+// console.log(typeof abc);
 /*==============================================*/
 
 // TODO: Refactor the following function using arrow syntax, default function parameter values, and template strings.
