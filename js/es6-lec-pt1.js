@@ -349,13 +349,17 @@ let sum2 = (a = 0, b = 0) => a + b;
 
 // TODO: Refactor the following function using arrow syntax, default function parameter values, and template strings.
 
-function helloCohort(greeting, cohort){
-    if(typeof greeting === "undefined"){
-        greeting = "Good Morning";
-    }
-    if(typeof cohort === "undefined"){
-        cohort = "Marco";
-    }
+// function helloCohort(greeting, cohort){
+//     if(typeof greeting === "undefined"){
+//         greeting = "Good Morning";
+//     }
+//     if(typeof cohort === "undefined"){
+//         cohort = "Marco";
+//     }
+//
+//     return greeting + " " + cohort;
+// }
 
-    return greeting + " " + cohort;
-}
+const helloCohort = (greeting = "Good Morning", cohort = "Marco") => `${greeting} ${cohort}`;
+
+console.log(helloCohort("Hello,", "Oberon"));
