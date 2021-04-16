@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Map ~ Filter ~ Reduce</title>
+</head>
+<body>
+
+<script>
+
+    //~ * Map * ~
+
+    //TODO Together: Let's see a common approach we might have done in the past: our goal is to increase each element of an array by 1 [element + 1], then get an array back with those values
+
+    // var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    //
+    // var numbersAddOne = [];
+    //
+    // for (var i = 0; i < numbers.length; i += 1) {
+    //     numbersAddOne.push(numbers[i] + 1);
+    // }
+    // console.log(numbersAddOne); // [2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+
+    //TODO Together: Now, let's achieve the same result with the first part of our lesson: the MAP method~
+
+    // let numbersAddOneMap = numbers.map(function(num){
+    //     return num + 1;
+    // })
+
+
+    // console.log(numbersAddOneMap);
+
+    //As you can see, .map() accepts a callback function - that callback function is applied to each element in the collection. What about a dive into a deeper, more complicated collection?
+
+    const favoriteRestaurants = [
+        {
+            name: "India Palace",
+            address: "8474 Fredericksburg Rd, San Antonio, TX 78229",
+            phone: "(210) 692-5262",
+            restaurantFeatures: ["buffet", "party room", "to-go"]
+        },
+        {
+            name: "Taqueria Jalisco",
+            address: "7094 Bandera Rd, San Antonio, TX 78238",
+            phone: "(210) 543-9400" ,
+            restaurantFeatures: ["to-go", "breakfast"]
+        },
+        {
+            name: "Sukhothai Thai Restaurant Express",
+            address: "7664 Tezel Rd Suite 105, San Antonio, TX 78250",
+            phone: "(210) 314-1106",
+            restaurantFeatures: ["to-go", "limited seating"]
+        }
+    ]
+
+
+    //TODO Together: Let's get all these restaurant names out of this array of objects with .map()!
+
+    let nameList = favoriteRestaurants.map(function(restaurant){
+        return restaurant.name;
+    })
+
+
+    console.log(nameList);
+
+    //TODO: Create your own array of (up to 3 and at least 2) restaurant objects building off of the basic list you created during the MapBox exercise (or build one anew!) ~5 mins
+
+    //TODO: Now, having created a personal array of restaurant objects for yourself, use .map() to get your favorite restaurant's names out of that collection, into another array, and out into the console! ~5 mins
+
+    //~ * Filter * ~
+
+    //TODO Together: Once again, let's take a look at the old way we might approach an issue: getting only one type of values out of an array (for example: even numbers only from an array of nums!)
+
+    // var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    //
+    // var evens = [];
+    //
+    // for (var i = 0; i < numbers.length; i += 1) {
+    //     if (numbers[i] % 2 === 0) {
+    //         evens.push(numbers[i]);
+    //     }
+    // }
+    // console.log(evens); // [2, 4, 6, 8, 10]
+
+
+    //TODO Together: Now, let's refactor the above using the ES6 .filter() method with the same goal: even numbers only!
+    // var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    //
+    // let evens = numbers.filter(function(num){
+    //     return num % 2 === 0;
+    // })
+    //
+    // console.log(evens);
+    //TODO Together: Using my favoriteRestaurants list, let's filter out all of the non-buffet restaurants
+
+    let hasBuffet = favoriteRestaurants.filter(function (restaurant){
+        return restaurant.restaurantFeatures.includes("buffet");
+    })
+
+    console.log(hasBuffet);
+
+    //TODO: Each one of your restaurant arrays is unique, but, in that array, identify something to filter by - it could be as simple as "well, let me filter out all of the restaurants with names shorter than 8 characters" or get as complicated as you'd like!
+
+    let nameLessThan17 = favoriteRestaurants.filter(function(restaurant){
+        return restaurant.name.length < 17;
+    })
+
+    console.log(nameLessThan17);
+
+    //TODO: Once you've done the above, go ahead and write the necessary code to achieve what you wanted - remember to practice with .filter() and our ES6 verbiage!
+
+    //~ * Reduce * ~
+
+    //Reduce is an interesting animal in and of itself: it's a way to reduce a collection down to, typically, a single value of some kind:
+
+    //TODO Together: Let's sum up some numbers with the .reduce() method and a number array!
+
+    let numbers = [1, 2, 3, 4, 5];
+
+    //in the past: we would have built out a loop, probably used a var of sum, and had a look inside of the loop of sum += numbers[i], spit out sum with the sum of our numbers
+
+    //In ES6 with .reduce(). .reduce() has a couple of components to it: .reduce(callbackFunction, initialValue)
+
+    let sum = numbers.reduce(function(total, num){
+        return total + num;
+    }, 0)
+
+    console.log("Our numbers added up are " + sum);
+
+    //TODO Together: Let's take a step a bit deeper with .reduce() - .reduce()'s output can take many forms and shapes. For example, let's say we wanted to have a little Javascript that would count the length of the strings in an array and return that info back to us in an object. For example: ["Codeup", "San", Antonio", "Dallas", "Marco", Cohort", "ES6"] would get us: Object { Codeup: 6, San: 3, Antonio: 7, Dallas: 6, Marco: 5, Cohort: 6, ES6: 3 }
+
+    let stringArr = ["Codeup", "San", "Antonio", "Dallas", "Marco", "Cohort", "ES6"];
+
+    let strLengthObj = stringArr.reduce(function(objectProp, element){
+        objectProp[element] = element.length; //assign the length as a value of the property named element {elementName: elementLength}
+        return objectProp;
+    }, {})
+
+    console.log(strLengthObj);
+
+    //TODO Together: That's pretty wild, eh! Wonder what else we could get up to with .reduce() - how about we make a function and use .reduce() inside of it? We'll write a function named countWords that takes a sentence in a single string. We need to split that sentence into an array and then write a .reduce() that would let us know how many times each word appeared in the string.
+
+    // function countWords(sentence) {
+    //     let words = sentence.split(' '); // transform a sentence into an array of words
+    //
+    //     let wordCountObject = words.reduce(function(wordCounts, word) {
+    //         if (typeof wordCounts[word] === 'undefined') {
+    //             // if the word is not yet present in our object, set it's value to 1
+    //             wordCounts[word] = 1;
+    //         } else {
+    //             // otherwise increment the existing count
+    //             wordCounts[word] += 1;
+    //         }
+    //         return wordCounts;
+    //     }, {}); // start with an empty object
+    //
+    //     return wordCountObject;
+    // }
+
+    let sentence = "Mary had a little lamb , little lamb , little lamb";
+
+    // console.log(countWords(sentence));
+
+    //TODO Together: Pretty good, but do we want to count the number of times the comma is involved? If only we had a method that would .filter() - wait! Let's refactor the above function to do just that!
+
+    function countWords(sentence) {
+        let words = sentence.split(' '); // transform a sentence into an array of words
+
+        words = words.filter(function(word){
+            return word !== ",";
+        }) //get out of here, comma! as long as the word is not strictly equivalent to a comma in a string, that word is headed into the words array
+
+        let wordCountObject = words.reduce(function(wordCounts, word) {
+            if (typeof wordCounts[word] === 'undefined') {
+                // if the word is not yet present in our object, set it's value to 1
+                wordCounts[word] = 1;
+            } else {
+                // otherwise increment the existing count
+                wordCounts[word] += 1;
+            }
+            return wordCounts;
+        }, {}); // start with an empty object
+
+        return wordCountObject;
+    }
+
+    console.log(countWords(sentence));
+
+    //TODO: Let's make a new array of objects to use - make an array of objects [{},{},{}] consisting of a number of family members as objects with their name and ages as properties. Use .reduce() to sum up the age of those family members and see what it is! e.g. [{name: "Thurston Howell III", age: 50}, {name: "William Dean Howells", age: 83}] would be 133 by adding those two age properties together (50 + 83).
+
+    let famArr = [{
+        name: "D. Howell",
+        age: 80
+    },{
+        name: "J. Howell",
+        age: 77
+    },{
+        name: "A.G.",
+        age: 26
+    }]
+
+    let sumFamilyAges = famArr.reduce(function(total, familyMember){
+        return total + familyMember.age;
+    }, 0)
+
+    console.log(sumFamilyAges);
+</script>
+</body>
+</html>
