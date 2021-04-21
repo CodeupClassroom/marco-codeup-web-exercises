@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BOM/DOM Practice Version 2</title>
+</head>
+<body>
+
+<input id="userInput">
+<button id="inputButton">How many words?</button>
+<div id="output"></div>
+
+<p id="sweetsParagraph">Liquorice powder sugar plum. Tart muffin lollipop chocolate cake pastry marshmallow cake gummi bears carrot cake. Jelly beans marzipan pastry jelly-o icing dragée muffin caramels. Danish cake macaroon croissant oat cake candy. Liquorice cake gummies apple pie marshmallow topping gummi bears. Cookie candy canes chocolate dragée cookie macaroon. Bear claw tart jelly toffee cake powder candy canes dragée cupcake. Powder gingerbread powder cookie. Cookie sesame snaps jelly-o danish. Pastry lemon drops wafer. Pastry dragée ice cream liquorice tootsie roll sesame snaps jelly-o candy canes oat cake. Ice cream apple pie cookie apple pie macaroon. Brownie biscuit lemon drops pie chocolate tiramisu. Cupcake jelly gummi bears soufflé.
+</p>
+
+<button id="yellowBtn">"C" starting words to yellow!</button>
+<button id="pinkBtn">Longer than 8? Pink sounds great!</button>
+<button id="bothBtn">Por que no los dos? (Why not both?)</button>
+
+<h6>Vegetarian and Non-Vegetarian Restaurants Nearby</h6>
+<ul id="restaurantResults">
+  <li data-veg="vegetarian" data-distance="1miles" data-dbid="1">Salad Czar</li>
+  <li data-veg="notVegetarian" data-distance="2miles" data-dbid="2">Meat Man's Sandwich Stop</li>
+</ul>
+
+<div id="isVeg"></div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+  //TODO: When the button is clicked with the id of #inputButton, the value of what is inside of the input field of #userValue should effect the id of #output as so: #output should display the text "The number of words you entered is:" followed by the appropriate number representing the number of words from the user's input.
+
+  $("#inputButton").click(function (){
+      let userInput = $("#userInput").val();
+
+      $("#output").html(`The number of words you have entered is: ${userInput.split(" ").length}`);
+
+  })
+
+  //TODO: I have a paragraph with the #sweetsParagraph. Whenever the button with the id of #yellowBtn is clicked, all of the words beginning with the letter "c" regardless of case will be now highlighted with a yellow background.
+
+  $("#yellowBtn").click(function(){
+      let sweetsParagraph = $("#sweetsParagraph").html();
+      let sweetsArr = sweetsParagraph.split(" ");
+
+      let workingArr = []; //bucket - a place to store information in the future
+
+      sweetsArr.forEach(function(word){
+         if ("c" === word.toLowerCase().split("")[0]){
+             console.log(word);
+             let prepend = "<span style='background-color:yellow'>";
+             let postpend = "</span>"
+             let htmlWrap = prepend + word + postpend;
+             console.log(htmlWrap);
+             workingArr.push(htmlWrap)
+         } else {
+             workingArr.push(word)
+         }
+      })
+
+      $("#sweetsParagraph").html(workingArr.join(" "))
+
+  })
+
+  //TODO: Let's work some more on #sweetsParagraph - I have a button with the id of #pinkBtn. Whenever #pinkBtn is clicked, I'd like to make words out of our paragraph that are longer than 8 characters to be highlighted with a pink background UNLESS that word also begins with "c". If the word begins with "c" and is longer than 8 characters, don't touch it!
+
+  $("#pinkBtn").click(function () {
+      let sweetsParagraph = $("#sweetsParagraph").html();
+      let sweetsArr = sweetsParagraph.split(" ");
+
+
+      let workingArr = []; //bucket - a place to store information in the future
+
+      sweetsArr.forEach(function(word){
+
+          if(word.includes("\n")){
+              word = word.split("\n").join("");
+         }
+
+          if("c" === word.toLowerCase().split("")[0]){
+              workingArr.push(word);
+          } else if (word.length > 8){
+              let prepend = "<span style='background-color:deeppink'>";
+              let postpend = "</span>";
+              let htmlWrapped = prepend + word + postpend;
+              workingArr.push(htmlWrapped)
+          } else {
+              workingArr.push(word);
+          }
+
+         $("#sweetsParagraph").html(workingArr.join(" "));
+
+      })
+
+  })
+
+  //TODO: I have a #bothBtn in this HTML - whenever #bothBtn is clicked, it will apply both of the above style guides to the paragraph simultaneously (both "c" starting words are highlighted yellow and all non-"c" starting words longer than 8 characters have pink highlight.)
+
+  $("#bothBtn").click(function(){
+      let sweetsArr = $("#sweetsParagraph").html().split(" ");
+      let workingArr = [];
+
+      sweetsArr.forEach(function(word){
+          if(word.includes("\n")){
+              word = word.split("\n").join("");
+          }
+
+          if("c" === word.toLowerCase().split("")[0]){
+              let prepend = "<span style=\"background-color:yellow\">";
+              let postpend = "</span>";
+              let htmlWord = prepend+ word+ postpend;
+              workingArr.push(htmlWord);
+          } else if (word.length > 8) {
+              let prepend = "<span style=\"background-color:deeppink\">";
+              let postpend = "</span>";
+              let htmlWord = prepend+ word+ postpend;
+              workingArr.push(htmlWord);
+          } else {
+              workingArr.push(word)
+          }
+
+          $("#sweetsParagraph").html(workingArr.join(" "))
+      })
+  })
+
+  //TODO Bonus: Refactor the above work where all three buttons can be clicked cleanly between each other and display their styles independently. First, a button to highlight the "c" words. Second, a button to highlight all non-"c" starting words with yellow. Lastly, a button that will apply both.
+
+  //TODO: I have an unordered list #restaurantResults with two LIs representing a couple of restaurants. These <li>s have data-* attributes on the element representing whether or not they are vegetarian, their rough distance away, and then some database IDs we won't be needing. Depending on which <li> is hovered over, the div known as #isVeg should display a string similar to the following: "This restaurant is notVegetarian, is 2miles away, and is named restaurantName"
+
+  // <h6>Vegetarian and Non-Vegetarian Restaurants Nearby</h6>
+  // <ul id="restaurantResults">
+  //     <li data-veg="vegetarian" data-distance="1miles" data-dbid="1">Salad Czar</li>
+  //     <li data-veg="notVegetarian" data-distance="2miles" data-dbid="2">Meat Man's Sandwich Stop</li>
+  // </ul>
+
+  $("#restaurantResults li").hover(function (e){
+      let restaurantName = $(e.target).html();
+      let isVeg = "";
+
+      if($(e.target).attr("data-veg") === "notVegetarian"){
+          isVeg = "is not vegetarian";
+      } else {
+          isVeg = "is vegetarian";
+      }
+
+      let distance = $(e.target).attr("data-distance").slice(0,1) + " " + $(e.target).attr("data-distance").slice(1);
+
+      $("#isVeg").html(`This restaurant ${isVeg}, is ${distance} away, and is named ${restaurantName}`);
+
+  })
+
+  //TODO Bonus: Work on the formatting of the above ouutput string for #isVeg to adjust spacing and casing appropriately. For example, "This restaurant is notVegetarian, is 2miles away, and is named restaurantName" would now be "This restaurant is not vegetarian, is 2 miles away, and is named restaurantName".
+
+  //TODO: It seems throughout all of this our user is hungry - cupcake paragraphs, restaurants in a list? Let's go ahead and setTimeout for 10 seconds to redirect our user to "www.food.com"
+
+  // window.setTimeout(function(){
+  //     window.location = "https://www.food.com";
+  // }, 10000)
+
+ </script>
+</body>
+</html>
